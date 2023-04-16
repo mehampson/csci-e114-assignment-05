@@ -1,0 +1,59 @@
+.navList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.navItem {
+    display: inline;
+    margin-right: 2em;
+}
+
+.header {}
+
+.container {}
+
+.container > header {
+    text-align: center;
+}
+
+.container>li {
+    list-style: none;
+    padding: 1em;
+}
+
+.bird-content>h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.bird-card {
+    float: left;
+    width: 24em;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #dbe7c8;
+}
+
+.card-header>h3,
+.card-caption,
+.card-content,
+.card-footer {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.bird-image {
+    width: 100%;
+}
+
+.card-caption {
+    font-size: 0.75em;
+}
+
+
+.footer-signature>li {
+    float: left;
+    list-style: none;
+    padding: 1em;
+}

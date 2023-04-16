@@ -1,0 +1,29 @@
+.birdlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 3em;
+    row-gap: 1.5em;
+}
+
+.birdItem {
+    text-align: center;
+    display: block;
+    width: 150px;
+    margin-inline: auto;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    color: black;
+
+    text-transform: capitalize;
+}
+
+.birdItem img {
+    max-width: 100%;
+}
+
+.expansion {
+    font-size: 0.8em;
+    font-style: italic;
+}

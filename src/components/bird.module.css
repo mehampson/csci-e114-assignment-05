@@ -1,0 +1,94 @@
+.scientificName {
+    font-style: italic;
+}
+
+.card {
+    margin-inline: auto;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    color: black;
+    padding: 1em;
+}
+
+.cardBody {
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    row-gap: 2em;
+}
+
+.costBlock .statsBlock  {
+    width: 20em;
+}
+
+.habitatList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.habitat {
+    width:5em;
+    text-align: center;
+    text-transform: capitalize;
+    border-color: transparent;
+    color: white;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-bottom: 1em;
+    border-radius: .35em;    
+}
+
+.forest {
+    background-color: green;
+}
+
+.grassland {
+    background-color: goldenrod;
+}
+
+.wetland {
+    background-color: darkblue;
+
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 2em;
+}
+
+.gallery > div {
+    margin: 0;
+    padding: 1em;
+    max-width: 10em;
+}
+
+.credit {
+    font-style: italic;
+}
+
+.power {
+    padding: 0.5em;
+    border-radius: 16px;
+}
+
+.brown {
+    background-color: burlywood;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.teal {
+    background-color: darkturquoise;
+
+}
+
+.yellow {
+    background-color: goldenrod;
+
+}

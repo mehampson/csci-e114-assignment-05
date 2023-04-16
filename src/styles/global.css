@@ -1,0 +1,40 @@
+figure {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    min-height: 100vh;
+    background-image: linear-gradient(#dcddcf, #61a1c5);
+    background-attachment: fixed;
+}
+
+main {
+    font-size: 1.2em;   
+    width: 48em;
+    border-radius: 16px;
+    box-shadow: none;
+    background: none;
+    padding: 1em;
+    margin: auto;
+}
+
+main>h2 {
+    color: #dbe7c8;
+    text-align: center;
+}
+
+
+footer {
+    font-size: 0.75em;
+    color: #dbe7c8;
+    text-align: center;
+}

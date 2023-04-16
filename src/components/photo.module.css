@@ -1,0 +1,17 @@
+.birdImage {
+    margin-inline: auto;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    color: black;
+    overflow: hidden;
+}
+
+.caption {
+    padding: 0 1em;
+}
+
+.birdImage img {
+    max-width: 100%;
+
+}

@@ -1,0 +1,120 @@
+[
+    {
+        "commonName": "Abbott's Booby",
+        "scientificName": "Papasula abbotti",
+        "set": "oceania",
+        "color": "white",
+        "power": "Draw 3 bonus cards, then discard 2. You may discard bonus cards you did not draw this turn.",
+        "flavorText": "This large, endangered seabird lives only on Christmas Island.",
+        "predator": false,
+        "flocking": false,
+        "bonusCard": true,
+        "victoryPoints": 5,
+        "nestType": "platform",
+        "eggLimit": 1,
+        "wingspan": 190,
+        "habitat": [
+            "wetland"
+        ],
+        "food": {
+            "fish": 2,
+            "foodCostAny": false,
+            "foodCostAlt": false,
+            "totalFoodCost": 2
+        },
+        "swiftStart": false,
+        "location": [
+            "Oceania"
+        ],
+        "bonus": [
+            "Historian",
+            "Endangered Species Protector",
+            "Fishery Manager",
+            "Large Bird Specialist",
+            "Platform Builder",
+            "Small Clutch Specialist",
+            "wetland Scientist",
+            "Wildlife Gardener"
+        ]
+    },
+    {
+        "commonName": "Acorn Woodpecker",
+        "scientificName": "Melanerpes formicivorus",
+        "set": "core",
+        "color": "brown",
+        "power": "Gain 1 [seed] from the birdfeeder, if available. You may cache it on this bird.",
+        "flavorText": "In a single dead tree, these birds may drill as many as 50,000 holes for storing acorns.",
+        "predator": false,
+        "flocking": false,
+        "bonusCard": false,
+        "victoryPoints": 5,
+        "nestType": "cavity",
+        "eggLimit": 4,
+        "wingspan": 46,
+        "habitat": [
+            "forest"
+        ],
+        "food": {
+            "seed": 3,
+            "foodCostAny": false,
+            "foodCostAlt": false,
+            "totalFoodCost": 3
+        },
+        "swiftStart": false,
+        "location": [
+            "North America",
+            "Central America"
+        ],
+        "bonus": [
+            "Bird Feeder",
+            "Diet Specialist",
+            "Forester",
+            "Nest Box Builder",
+            "Wildlife Gardener"
+        ]
+    },
+    {
+        "commonName": "American Avocet",
+        "scientificName": "Recurvirostra americana",
+        "set": "core",
+        "color": "pink",
+        "power": "When another player takes the \"lay eggs\" action, lay 1 [egg] on another bird with a [ground] nest.",
+        "flavorText": "American avocets build their own nests, but they also parasitize other birds' nests.",
+        "predator": false,
+        "flocking": false,
+        "bonusCard": false,
+        "victoryPoints": 6,
+        "nestType": "ground",
+        "eggLimit": 2,
+        "wingspan": 79,
+        "habitat": [
+            "wetland"
+        ],
+        "food": {
+            "invertebrate": 2,
+            "seed": 1,
+            "nectar": 1,
+            "fruit": 1,
+            "rodent": 1,
+            "wild_food": 1,
+            "foodCostAny": false,
+            "foodCostAlt": false,
+            "totalFoodCost": 3
+        },
+        "swiftStart": false,
+        "location": [
+            "North America",
+            "Central America"
+        ],
+        "bonus": [
+            "Cartographer",
+            "Bird Feeder",
+            "Diet Specialist",
+            "Enclosure Builder",
+            "Large Bird Specialist",
+            "Small Clutch Specialist",
+            "wetland Scientist",
+            "Wildlife Gardener"
+        ]
+    }
+]
