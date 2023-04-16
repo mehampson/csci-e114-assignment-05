@@ -3,8 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `assignment-4-gatsby`,
-    description: `Starter Gatsby project for Assignment 4`,
+    title: `assignment-5-gatsby`,
+    description: `Starter Gatsby project for Assignment 5`,
     course: `CSCI E-114`,
     siteUrl: `https://www.yourdomain.tld`,
   },
