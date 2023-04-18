@@ -18,7 +18,7 @@ async function fetch_bird_photos(bird) {
 
     const api_url = new URL("https://www.flickr.com/services/rest");
 
-    /* Configuring the API request. */       
+    /* Configuring the API request. */
     api_url.search = new URLSearchParams(
         {
             method: 'flickr.photos.search',
@@ -37,10 +37,14 @@ async function fetch_bird_photos(bird) {
     );
 
     bird_photos = await fetch(api_url.href, fetch_options);
-
-    console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
-
-    return bird_photos.photos;
+    if (bird_photos.stat === 'ok') {
+        console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
+        return bird_photos.photos;
+    }
+    else {
+        console.log(`Error searching Flickr for ${bird.commonName}: ${bird_photo.message}`);
+        return [];
+    }
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -131,7 +135,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
             .replace(/[ā]/g, 'a')
             .replace(/[ī]/g, 'i')
             .replace(/[ō]/g, 'o')
-            .replace(/[ū]/g, 'u') 
+            .replace(/[ū]/g, 'u')
             .replaceAll(' ', '-')
             .toLowerCase();
 
@@ -142,7 +146,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
         const bird_photo_json = await fetch_bird_photos(node);
 
         if (bird_photo_json.stat = 'ok') {
-            bird_photo_json.photo.forEach( async (photo, index) => {
+            bird_photo_json.photo.forEach(async (photo, index) => {
                 // We'll create the node as an object first
                 const photo_node = {
                     ...photo,
@@ -156,9 +160,9 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
                     internal: {
                         type: 'Photo',
                         contentDigest: createContentDigest(photo)
-                    }                    
+                    }
                 };
-                
+
                 // Now register it
                 createNode(photo_node);
 
@@ -176,8 +180,8 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
                     });
 
                     if (thumbnail) {
-                        createNodeField( {node, name: 'thumbnail', value: thumbnail.id });
-                        console.log(`Made a thumbnail for ${node.commonName}` );
+                        createNodeField({ node, name: 'thumbnail', value: thumbnail.id });
+                        console.log(`Made a thumbnail for ${node.commonName}`);
                     }
                 }
             });
