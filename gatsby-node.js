@@ -37,12 +37,13 @@ async function fetch_bird_photos(bird) {
     );
 
     bird_photos = await fetch(api_url.href, fetch_options);
+    /* Flickr's API seems to always return a 200, and has a 'stat' attribute to indicate success/failure */
     if (bird_photos.stat === 'ok') {
         console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
         return bird_photos.photos;
     }
     else {
-        console.log(`Error searching Flickr for ${bird.commonName}: ${bird_photo.message}`);
+        console.log(`Error searching Flickr for ${bird.commonName}: ${bird_photos.message}`);
         return [];
     }
 }
