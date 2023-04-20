@@ -40,12 +40,11 @@ async function fetch_bird_photos(bird) {
     /* Flickr's API seems to always return a 200, and has a 'stat' attribute to indicate success/failure */
     if (bird_photos.stat === 'ok') {
         console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
-        return bird_photos.photos;
     }
     else {
         console.log(`Error searching Flickr for ${bird.commonName}: ${bird_photos.message}`);
-        return [];
     }
+    return bird_photos;
 }
 
 export function createSchemaCustomization({ actions }) {
@@ -146,8 +145,9 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
 
         const bird_photo_json = await fetch_bird_photos(node);
 
-        if (bird_photo_json.stat = 'ok') {
-            bird_photo_json.photo.forEach(async (photo, index) => {
+        /* Let's not throw an error if the API hasn't returned anything */
+        if (bird_photo_json.photos.photo.length > 0) {
+            bird_photo_json.photos.photo.forEach(async (photo, index) => {
                 // We'll create the node as an object first
                 const photo_node = {
                     ...photo,
