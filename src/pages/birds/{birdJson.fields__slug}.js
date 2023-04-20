@@ -4,12 +4,12 @@ import Layout from '../../components/layout';
 import BirdCard from '../../components/bird_card';
 
 const BirdPage = ({ data }) => {
-  const bird = data.allBirdJson.nodes[0];
-  return (
-    <Layout pageTitle={bird.commonName}>
-      <BirdCard bird={bird}></BirdCard>     
-    </Layout>
-  );
+    const bird = data.allBirdJson.nodes[0];
+    return (
+        <Layout pageTitle={bird.commonName}>
+            <BirdCard bird={bird}></BirdCard>     
+        </Layout>
+    );
 };
 
 export const query = graphql`
@@ -60,8 +60,8 @@ export const query = graphql`
       }
     }
   }
-  `
+  `;
 
 
 
-  export default BirdPage;
+export default BirdPage;

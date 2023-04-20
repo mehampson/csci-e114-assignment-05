@@ -3,14 +3,14 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import BirdList from '../components/bird_list';
 
-const BirdPage = ({data}) => {
+const BirdPage = ({ data }) => {
     const birds = data.allBirdJson.nodes;
     return (
         <Layout pageTitle="So many birdies">
             <BirdList birds={birds} />
         </Layout>
-    )
-}
+    );
+};
 
 export const query = graphql`
     query BirdQuery {
@@ -29,6 +29,6 @@ export const query = graphql`
             }
         }
     }
-    `
-    
+    `;
+
 export default BirdPage;

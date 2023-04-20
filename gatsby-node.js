@@ -1,6 +1,6 @@
 require("dotenv").config();
-const fetch = require("@11ty/eleventy-fetch");
-const { createRemoteFileNode } = require('gatsby-source-filesystem');
+import fetch from "@11ty/eleventy-fetch";
+import { createRemoteFileNode } from 'gatsby-source-filesystem';
 
 async function fetch_bird_photos(bird) {
     /* Fetches info about photos of our bird from Flickr.
@@ -48,7 +48,7 @@ async function fetch_bird_photos(bird) {
     }
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
+export function createSchemaCustomization({ actions }) {
     const { createTypes } = actions;
     const typeDefs = `
         type BirdJson implements Node {
@@ -74,9 +74,9 @@ exports.createSchemaCustomization = ({ actions }) => {
 }
 
 
-exports.sourceNodes = async ({
+export async function sourceNodes({
     actions
-}) => {
+}) {
     const { createNode } = actions;
 
     /*
@@ -122,9 +122,9 @@ exports.sourceNodes = async ({
             `
     createTypes(typeDefs)
   }*/
-};
+}
 
-exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest, getCache }) => {
+export async function onCreateNode({ node, actions, createNodeId, createContentDigest, getCache }) {
     /* A bird's common name would be its best slug, so let's add it as a custom field */
     const { createNode, createNodeField, createParentChildLink } = actions;
     if (node.internal.type == 'BirdJson') {
@@ -193,4 +193,4 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
         }
 
     };
-};
+}
