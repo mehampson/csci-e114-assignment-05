@@ -1,7 +1,10 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+import('gatsby').GatsbyConfig;
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const config = {
   siteMetadata: {
     title: `assignment-5-gatsby`,
     description: `Starter Gatsby project for Assignment 5`,
@@ -17,12 +20,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `${__dirname}/data/`,
+        path: `${dirname}/data/`,
       },
     }
   ],
 }
 
+export default config;
     // consider the following plugins you may choose to use for your project
     
     /*    FOR IMAGES LOCATED WITHIN YOUR PROJECT, USING GatsbyImage or StaticImage

@@ -1,6 +1,8 @@
-require("dotenv").config();
+import * as dotenv from 'dotenv';
 import fetch from "@11ty/eleventy-fetch";
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
+
+dotenv.config();
 
 async function fetch_bird_photos(bird) {
     /* Fetches info about photos of our bird from Flickr.
@@ -36,7 +38,7 @@ async function fetch_bird_photos(bird) {
         }
     );
 
-    bird_photos = await fetch(api_url.href, fetch_options);
+    const bird_photos = await fetch(api_url.href, fetch_options);
     /* Flickr's API seems to always return a 200, and has a 'stat' attribute to indicate success/failure */
     if (bird_photos.stat === 'ok') {
         console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
@@ -145,8 +147,8 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
 
         const bird_photo_json = await fetch_bird_photos(node);
 
-        /* Let's not throw an error if the API hasn't returned anything */
-        if (bird_photo_json.photos.photo.length > 0) {
+        /* Let's not assume the API call worked */
+        if (bird_photo_json.stat === 'ok') {
             bird_photo_json.photos.photo.forEach(async (photo, index) => {
                 // We'll create the node as an object first
                 const photo_node = {
@@ -188,7 +190,7 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
             });
         }
         else {
-            // Let's not assume the API call was successful
+            // But if the API call didn't work
             console.error(`Unhappy API response: ${bird_photo_json.code}: ${bird_photo_json.message}`);
         }
 
