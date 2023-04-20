@@ -6,7 +6,7 @@ import { WingspanArt } from '../components/box_art';
 
 const IndexPage = () => {
     return (
-        <Layout pageTitle="Assignment 4">
+        <Layout pageTitle="Assignment 5">
             <p>This site provides data from the board game <a href="https://stonemaiergames.com/games/wingspan/">Wingspan</a>.</p>
             <WingspanArt />
             <p>In Wingspan, players compete to build bird sanctuaries. Gameplay is centered on 450+ cards, each which a unique species of bird that has its own attributes and abilities.</p>
@@ -21,7 +21,7 @@ export default IndexPage;
 
 export const Head = () => {
     return (
-        <title>Assignment 4</title>
+        <title>Assignment 5</title>
     );
 };
 

@@ -7,7 +7,7 @@ const Layout = ({ pageTitle, children }) => {
     return (
         <div className={layoutStyles.container}>
             <header className={layoutStyles.header}>
-                <h1>Assignment 4: Birds of Wingspan</h1>
+                <h1>Assignment 5: Birds of Wingspan</h1>
                 <nav> 
                     <ul className={layoutStyles.navList}>
                         <li className={layoutStyles.navItem}> 
