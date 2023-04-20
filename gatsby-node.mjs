@@ -44,7 +44,7 @@ async function fetch_bird_photos(bird) {
         console.log(`Searching Flickr for ${bird.commonName}: found ${bird_photos.photos.photo.length} photos`);
     }
     else {
-        console.log(`Error searching Flickr for ${bird.commonName}: ${bird_photos.message}`);
+        console.warn(`Error ${bird_photos.code} searching Flickr for ${bird.commonName}: ${bird_photos.message}`);
     }
     return bird_photos;
 }
@@ -71,8 +71,7 @@ export function createSchemaCustomization({ actions }) {
     `;
 
     createTypes(typeDefs);
-
-}
+};
 
 
 export async function sourceNodes({
@@ -189,10 +188,5 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
                 }
             });
         }
-        else {
-            // But if the API call didn't work
-            console.error(`Unhappy API response: ${bird_photo_json.code}: ${bird_photo_json.message}`);
-        }
-
     };
 }
