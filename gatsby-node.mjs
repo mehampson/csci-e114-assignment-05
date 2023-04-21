@@ -4,6 +4,22 @@ import { createRemoteFileNode } from 'gatsby-source-filesystem';
 
 dotenv.config();
 
+/* Convert a bird's common name into a URL-friendly slug */
+function slugify(name) {
+    return name
+        /* We definitely have to strip out apostrophes. We might have to deal with other punctuation, too. 
+            We'll use a regex for these, but just replaceAll for changing spaces to dashes. */
+        .replace(/[']/g, '')
+        /* Several birds have macrons that make URLs look bad when encoded */
+        .replace(/[ā]/g, 'a')
+        .replace(/[ī]/g, 'i')
+        .replace(/[ō]/g, 'o')
+        .replace(/[ū]/g, 'u')
+        .replaceAll(' ', '-')
+        .toLowerCase();
+}
+
+
 async function fetch_bird_photos(bird) {
     /* Fetches info about photos of our bird from Flickr.
        Flickr's REST API has some odd design choices. They only have one endpoint, and you use the 'method' 
@@ -128,17 +144,7 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
     /* A bird's common name would be its best slug, so let's add it as a custom field */
     const { createNode, createNodeField, createParentChildLink } = actions;
     if (node.internal.type == 'BirdJson') {
-        const slug = node.commonName
-            /* We definitely have to strip out apostrophes. We might have to deal with other punctuation, too. 
-               We'll use a regex for these, but just replaceAll for changing spaces to dashes. */
-            .replace(/[']/g, '')
-            /* Several birds have macrons that make URLs look bad when encoded */
-            .replace(/[ā]/g, 'a')
-            .replace(/[ī]/g, 'i')
-            .replace(/[ō]/g, 'o')
-            .replace(/[ū]/g, 'u')
-            .replaceAll(' ', '-')
-            .toLowerCase();
+        const slug = slugify(node.commonName);
 
         createNodeField({ node, name: `slug`, value: slug });
 
@@ -190,3 +196,5 @@ export async function onCreateNode({ node, actions, createNodeId, createContentD
         }
     };
 }
+
+export default slugify;
