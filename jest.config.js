@@ -135,7 +135,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: [`<rootDir>/loadershim.js`],
+  //setupFiles: [`<rootDir>/loadershim.js`],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
@@ -177,7 +177,6 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.jsx?$": `<rootDir>/jest-preprocess.js`,
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
