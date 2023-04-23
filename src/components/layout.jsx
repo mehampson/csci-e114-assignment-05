@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import * as layoutStyles from "./layout.module.css";
+import * as layoutStyles from './layout.module.css';
 
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ children }) => {
     return (
         <div className={layoutStyles.container}>
             <header className={layoutStyles.header}>
@@ -11,10 +11,10 @@ const Layout = ({ pageTitle, children }) => {
                 <nav> 
                     <ul className={layoutStyles.navList}>
                         <li className={layoutStyles.navItem}> 
-                            <Link to="/">Home</Link>
+                            <Link to='/'>Home</Link>
                         </li>
                         <li className={layoutStyles.navItem}>
-                            <Link to="/birds">Birds</Link>
+                            <Link to='/birds'>Birds</Link>
                         </li>
                     </ul>
                 </nav>

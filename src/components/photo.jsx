@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as photoStyles from "../components/photo.module.css";
+import * as photoStyles from '../components/photo.module.css';
 
 const Photo = ({ photo }) => {
     return (
@@ -10,7 +10,7 @@ const Photo = ({ photo }) => {
                 <p>By {photo.ownername || photo.owner}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Photo;

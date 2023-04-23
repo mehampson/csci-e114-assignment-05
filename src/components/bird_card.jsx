@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFeather, faMound, faEgg, faDove, faSkullCrossbones, faCrow } from '@fortawesome/free-solid-svg-icons';
 
 
-import * as birdStyles from "./bird.module.css";
+import * as birdStyles from './bird.module.css';
 
 const BirdCard = ({ bird }) => {
 
@@ -13,7 +13,7 @@ const BirdCard = ({ bird }) => {
        There are several types of food, and a bird usually costs 1-3 of them total.
 
        Some birds will let you pay any of the listed food types rather than requiring all of them,
-       (e.g. "1 seed or fruit") and we'll print those with a / symbol instead of a +. */
+       (e.g. '1 seed or fruit') and we'll print those with a / symbol instead of a +. */
     const connector = (bird.food.foodCostAny ? ' / ' : ' + ');
 
     /* I could have constructed the JSON this way when I converted the spreadsheet I used as the data source,
@@ -41,23 +41,23 @@ const BirdCard = ({ bird }) => {
     let power;
     switch (bird.color) {
         case 'white':
-            power = {style: '', pre: 'WHEN PLAYED'};
+            power = { style: '', pre: 'WHEN PLAYED' };
             break;
         case 'brown':
-            power =  {style: birdStyles.brown, pre: 'WHEN ACTIVATED'};
+            power = { style: birdStyles.brown, pre: 'WHEN ACTIVATED' };
             break;
         case 'pink':
-            power = {style: birdStyles.pink, pre: 'ONCE BETWEEN TURNS'};
+            power = { style: birdStyles.pink, pre: 'ONCE BETWEEN TURNS' };
             break;
         case 'teal':
-            power = {style: birdStyles.teal, pre: 'ROUND END'};
+            power = { style: birdStyles.teal, pre: 'ROUND END' };
             break;
         case 'yellow':
-            power = {style: birdStyles.yellow, pre: 'GAME END'};
+            power = { style: birdStyles.yellow, pre: 'GAME END' };
             break;
         default:
-            power = {style: '', pre: ''};
-        };
+            power = { style: '', pre: '' };
+    }
 
     return (
         <article>
@@ -69,7 +69,7 @@ const BirdCard = ({ bird }) => {
 
                 <div className={birdStyles.cardBody}>
                     <div className={birdStyles.costBlock}>
-                        <p>Food Cost: {food_cost || "\u2205"}</p>
+                        <p>Food Cost: {food_cost || '\u2205'}</p>
 
                         <ul className={birdStyles.habitatList}>
                             {/* The player's game board consists of three habitats. 
@@ -78,9 +78,9 @@ const BirdCard = ({ bird }) => {
                         */}
                             {bird.habitat.map(habitat => (
                                 <li key={habitat} className={`${birdStyles.habitat} 
-                                        ${habitat === "forest" && birdStyles.forest}
-                                        ${habitat === "grassland" && birdStyles.grassland}
-                                        ${habitat === "wetland" && birdStyles.wetland}`}>{habitat}</li>
+                                        ${habitat === 'forest' && birdStyles.forest}
+                                        ${habitat === 'grassland' && birdStyles.grassland}
+                                        ${habitat === 'wetland' && birdStyles.wetland}`}>{habitat}</li>
                             )
                             )}
                         </ul>
@@ -88,10 +88,10 @@ const BirdCard = ({ bird }) => {
 
                     {/* Birds have some other attributes that affect their gameplay */}
                     <div className={birdStyles.statsBlock}>
-                        <p><FontAwesomeIcon icon={faFeather} style={{ color: "#c64600", }} /> {bird.victoryPoints} Points</p>
-                        <p><FontAwesomeIcon icon={faMound} rotation={180} style={{ color: "#c64600", }} /> {bird.nestType || 'No'} Nest</p>
-                        <p><FontAwesomeIcon icon={faEgg} style={{ color: "#99c1f1", }} /> {bird.eggLimit || 0} Eggs</p>
-                        <p><FontAwesomeIcon icon={faDove} style={{ color: "#f5c211", }} /> {bird.wingspan}cm Wingspan</p>
+                        <p><FontAwesomeIcon icon={faFeather} style={{ color: '#c64600', }} /> {bird.victoryPoints} Points</p>
+                        <p><FontAwesomeIcon icon={faMound} rotation={180} style={{ color: '#c64600', }} /> {bird.nestType || 'No'} Nest</p>
+                        <p><FontAwesomeIcon icon={faEgg} style={{ color: '#99c1f1', }} /> {bird.eggLimit || 0} Eggs</p>
+                        <p><FontAwesomeIcon icon={faDove} style={{ color: '#f5c211', }} /> {bird.wingspan}cm Wingspan</p>
                     </div>
 
                 </div>
@@ -101,20 +101,20 @@ const BirdCard = ({ bird }) => {
                         {bird.predator && <FontAwesomeIcon icon={faSkullCrossbones} />}
                         {bird.flocking && <FontAwesomeIcon icon={faCrow} />}
                     </span> {power.pre}: {bird.power}
-                    
+
                 </div>
 
             </div>
 
             <div className={birdStyles.gallery}>
-                    {bird.childrenPhoto.map(photo => (
-                        <div key={photo.id}><Photo photo={photo}></Photo></div>
-                        )
-                    )}
+                {bird.childrenPhoto.map(photo => (
+                    <div key={photo.id}><Photo photo={photo}></Photo></div>
+                )
+                )}
             </div>
 
         </article>
-    )
-}
+    );
+};
 
 export default BirdCard;
