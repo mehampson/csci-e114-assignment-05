@@ -89,13 +89,13 @@ export function createSchemaCustomization({ actions }) {
     createTypes(typeDefs);
 };
 
-
+/*
 export async function sourceNodes({
     actions
 }) {
     const { createNode } = actions;
 
-    /*
+    
     Keeping this in case I change my mind again about whether to infer the schema or not
     
     exports.createSchemaCustomization = ({ actions }) => {
@@ -137,13 +137,13 @@ export async function sourceNodes({
             },
             `
     createTypes(typeDefs)
-  }*/
-}
+  }
+}*/
 
 export async function onCreateNode({ node, actions, createNodeId, createContentDigest, getCache }) {
     /* A bird's common name would be its best slug, so let's add it as a custom field */
     const { createNode, createNodeField, createParentChildLink } = actions;
-    if (node.internal.type == 'BirdJson') {
+    if (node.internal.type === 'BirdJson') {
         const slug = slugify(node.commonName);
 
         createNodeField({ node, name: `slug`, value: slug });
