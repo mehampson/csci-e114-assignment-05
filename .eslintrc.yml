@@ -11,6 +11,9 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+settings:
+  react:
+    version: detect 
 rules:
   indent:
     - error
@@ -24,3 +27,5 @@ rules:
   semi:
     - error
     - always
+  react/prop-types:
+    - warn
