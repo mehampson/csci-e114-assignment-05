@@ -5,10 +5,22 @@ env:
 extends:
   - eslint:recommended
   - plugin:react/recommended
-overrides: []
+overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      plugins: [
+        '@typescript-eslint',
+      ],
+      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
+    },
+  ]
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
+ ecmaVersion: latest
+ sourceType: module
 plugins:
   - react
 settings:
