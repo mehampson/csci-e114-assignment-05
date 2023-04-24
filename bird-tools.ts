@@ -69,7 +69,7 @@ export async function fetch_bird_photos(bird: BirdSearch) {
 
     const params = new URLSearchParams( {
             method: 'flickr.photos.search',
-            api_key: process.env.FLICKR_API_KEY || '',
+            api_key: process.env.FLICKR_API_KEY as string,
             format: 'json', // the default response format is XML
             content_type: '1', // photos only
             per_page: '10', // This is effectively how we limit the results per request. Let's be reasonable here.
