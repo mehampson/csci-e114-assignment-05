@@ -6,6 +6,7 @@ import { test, expect } from '@jest/globals';
 import fetch from '@11ty/eleventy-fetch';
 import { photos, no_photos } from './searchResponse';
 
+// Test our slugify function
 test('slugify', () => {
     // ā, ō
     expect(slugify('Kākāpō')).toBe('kakapo');
@@ -17,16 +18,14 @@ test('slugify', () => {
     expect(slugify('Gould\'s Finch')).toBe('goulds-finch');
 });
 
+
 // Test that we're passing a successful search call back out
 test('find bird photos', async () => {
 
     fetch.mockResolvedValue(photos);
 
     const test_bird: BirdSearch = {common_name: 'Test Bird', scientific_name: 'Avus probatio'};
-
     const bird_photos = await fetch_bird_photos(test_bird);
-
-    console.log(bird_photos);
 
     expect(bird_photos.stat).toBe('ok');
     expect(bird_photos).toHaveProperty('photos');
@@ -34,16 +33,14 @@ test('find bird photos', async () => {
 
 });
 
+
 // Test that we catch a typical search error, such as from a missing API key
 test('bad API response', async () => {
 
     fetch.mockResolvedValue(no_photos);
 
     const test_bird: BirdSearch = {common_name: 'Test Bird', scientific_name: 'Avus probatio'};
-
     const bird_photos = await fetch_bird_photos(test_bird);
-
-    console.log(bird_photos);
 
     expect(bird_photos.code).toBe(100);
     expect(bird_photos).not.toHaveProperty('photos');
