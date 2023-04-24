@@ -1,4 +1,4 @@
-import slugify from '../gatsby-node';
+import {slugify} from '../bird-tools';
 import {test, expect} from '@jest/globals';
 
 test('slugify', () => {
@@ -11,3 +11,4 @@ test('slugify', () => {
     // apostrophes and whitespace
     expect(slugify('Gould\'s Finch')).toBe('goulds-finch');
 });
+
