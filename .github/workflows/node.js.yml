@@ -20,9 +20,9 @@ jobs:
       with:
         node-version: '19.9'
         cache: 'npm'
-      env:
-        FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
     - run: npm ci
     - run: npm run lint
     - run: npm run test
     - run: npm run build --if-present
+      env:
+        FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
