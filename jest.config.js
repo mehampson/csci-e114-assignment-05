@@ -23,7 +23,7 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -31,7 +31,7 @@ module.exports = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -65,7 +65,7 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  globals: { __PATH_PREFIX__: ``, },
+  globals: { __PATH_PREFIX__: '', },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -89,8 +89,8 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    ".+\\.(css|styl|less|sass|scss)$": `identity-obj-proxy`,
-    ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/__mocks__/file-mock.js`,
+    '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
+    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/file-mock.js',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -157,13 +157,13 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).?(m)[tj]s?(x)"
+    '**/__tests__/**/*.[jt]s?(x)',
+    '**/?(*.)+(spec|test).?(m)[tj]s?(x)'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    `node_modules`, `\\.cache`, `<rootDir>.*/public`
+    'node_modules', '\\.cache', '<rootDir>.*/public'
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -181,9 +181,9 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "/node_modules/",
-    "\\.pnp\\.[^\\/]+$",
-    `node_modules/(?!(gatsby|gatsby-script|gatsby-link)/)`
+    '/node_modules/',
+    '\\.pnp\\.[^\\/]+$',
+    'node_modules/(?!(gatsby|gatsby-script|gatsby-link)/)'
   ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
@@ -197,5 +197,5 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-  preset: "ts-jest"
+  preset: 'ts-jest'
 };

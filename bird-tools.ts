@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import fetch from "@11ty/eleventy-fetch";
+import fetch from '@11ty/eleventy-fetch';
 
 dotenv.config();
 
@@ -8,12 +8,12 @@ dotenv.config();
 export interface BirdSearch {
     common_name: string,
     scientific_name: string
-};
+}
 
 // Why is the description structured like this? Are there more fields that might appear?
 export interface PhotoDesc {
     _content: string
-};
+}
 
 export interface Photo {
     id: string,
@@ -30,7 +30,7 @@ export interface Photo {
     ownername: string,
     media: string,
     media_status: string
-};
+}
 
 
 /* Convert a bird's common name into a URL-friendly slug */
@@ -58,9 +58,9 @@ export async function fetch_bird_photos(bird: BirdSearch) {
      */
 
     const fetch_options = {
-        directory: ".api-cache",
-        duration: "1d", // this happens to be the max cache duration Flickr allows
-        type: "json"
+        directory: '.api-cache',
+        duration: '1d', // this happens to be the max cache duration Flickr allows
+        type: 'json'
     };
 
     const base_url = 'https://www.flickr.com/services/rest';

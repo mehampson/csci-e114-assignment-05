@@ -25,7 +25,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     `;
 
     createTypes(typeDefs);
-}
+};
 
 /*
 export async function sourceNodes({
@@ -78,14 +78,14 @@ export async function sourceNodes({
   }
 }*/
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, getNode, actions, createNodeId, createContentDigest, getCache }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions, createNodeId, createContentDigest, getCache }) => {
     /* A bird's common name would be its best slug, so let's add it as a custom field */
     const { createNode, createNodeField, createParentChildLink } = actions;
     if (node.internal.type === 'BirdJson') {
 
         const slug = slugify(node.commonName as string); // You and I know this will be a non-empty string, but the compiler doesn't
 
-        createNodeField({ node, name: `slug`, value: slug });
+        createNodeField({ node, name: 'slug', value: slug });
 
         /* Now let's search for photos of this bird on Flickr, and add the results as child nodes */
         const bird_search: BirdSearch = { common_name: node.commonName as string, scientific_name: node.scientificName as string };
@@ -133,5 +133,5 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, getNode, 
                 }
             });
         }
-    };
-}
+    }
+};
