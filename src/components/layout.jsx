@@ -16,6 +16,10 @@ const Layout = ({ children }) => {
                         <li className={layoutStyles.navItem}>
                             <Link to='/birds'>Birds</Link>
                         </li>
+
+                        <li className={layoutStyles.navItem}>
+                            <Link to='/nearby'>Near You</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>
