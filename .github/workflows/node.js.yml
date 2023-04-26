@@ -26,16 +26,9 @@ jobs:
     - run: npm run test
     - run: npm run build --if-present
       env:
-        FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
-    
+        FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}    
     - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v2.0
-      with:
-        publish-dir: './public'
-        production-branch: main
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions"
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      timeout-minutes: 10
+      run: "npm install -g netlify-cli && npx netlify deploy --prod --message \"${{ github.event.head_commit.message }}\""
