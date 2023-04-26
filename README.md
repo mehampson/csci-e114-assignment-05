@@ -16,3 +16,5 @@ To run this yourself:
 6. Create a new .env file using .env.sample, and update the API keys there
 7. Register an account on Netlify, if necessary, and link this repository with `netlify cli`
 8. Run locally with `netlify dev`
+
+But that's a lot of work, so you can just see the site on [Netlify](https://polite-bunny-c8ac41.netlify.app/) instead if you prefer.
